@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- AstraMend Modern Pharmaceutical Logo -->
+  <defs>
+    <linearGradient id="astramendBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a2540" />
+      <stop offset="100%" stop-color="#144b82" />
+    </linearGradient>
+    <linearGradient id="astramendTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00a896" />
+      <stop offset="50%" stop-color="#02c39a" />
+      <stop offset="100%" stop-color="#0096c7" />
+    </linearGradient>
+    <linearGradient id="crossGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#48cae4" />
+      <stop offset="100%" stop-color="#0077b6" />
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0a2540" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Dynamic 'A' Star / Medical Emblem -->
+  <g transform="translate(10, 8)" filter="url(#subtleShadow)">
+    <!-- Left Ribbon of A -->
+    <path d="M 28 8 L 10 56 C 9 59 12 62 16 62 L 24 62 C 27 62 29 60 30 57 L 35 44 L 47 44 L 40 28 L 33 13 C 32 10 30 8 28 8 Z" fill="url(#astramendBlue)" />
+    <!-- Right Ribbon of A / Cross Swoosh -->
+    <path d="M 28 8 C 30 8 32 10 33 13 L 53 57 C 54 60 56 62 59 62 L 67 62 C 71 62 74 59 73 56 L 55 8 Z" fill="url(#astramendTeal)" opacity="0.95" />
+    <!-- Overlapping Cross / Orbit Bar -->
+    <path d="M 18 36 C 24 33 46 32 62 38 C 58 42 40 43 24 41 Z" fill="url(#crossGlow)" />
+    <!-- Medical Spark / Star Accent -->
+    <path d="M 46 14 Q 52 14 52 8 Q 52 14 58 14 Q 52 14 52 20 Q 52 14 46 14 Z" fill="#02c39a" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(86, 26)">
+    <!-- Brand Name -->
+    <text x="0" y="16" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-weight="800" font-size="27" fill="#0a2540" letter-spacing="-0.5">Astra<tspan fill="#0096c7">Mend</tspan></text>
+    <!-- Subtitle -->
+    <text x="1" y="32" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#5c6f84" letter-spacing="3.8">HEALTHCARE</text>
+    <!-- Tagline -->
+    <text x="1" y="45" font-family="'Caveat', 'Playfair Display', cursive, serif" font-weight="600" font-size="11" fill="#0096c7" font-style="italic" letter-spacing="0.4">Healing with excellence</text>
+  </g>
+</svg>
