@@ -80,6 +80,8 @@ const PRODUCTS_DATA = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeMode();
+  initThemePalette();
   initNavigation();
   initModals();
   initProductCatalog();
@@ -550,6 +552,142 @@ function showToast(message) {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 4500);
+}
+
+/* ==========================================================================
+   Theme Mode & Palette Handlers (Matches User Screenshots)
+   ========================================================================== */
+const PALETTE_COLORS = [
+  { name: 'Sand Beige', hex: '#C1A775' },
+  { name: 'Antique Gold', hex: '#A07E1B' },
+  { name: 'Burgundy', hex: '#7A1C30' },
+  { name: 'Dusty Rose', hex: '#A65B79' },
+  { name: 'Deep Plum', hex: '#4D3859' },
+  { name: 'Deep Magenta', hex: '#8D1758' },
+  { name: 'Crimson Red', hex: '#DE1D4B' },
+  { name: 'Deep Teal', hex: '#1B7B87' },
+  { name: 'Forest Green', hex: '#2E6238' },
+  { name: 'Muted Olive', hex: '#565A31' },
+  { name: 'Warm Slate', hex: '#797C74' },
+  { name: 'Jade Green', hex: '#2C9375' },
+  { name: 'Cocoa', hex: '#785139' },
+  { name: 'Taupe', hex: '#86817B' },
+  { name: 'Olive', hex: '#4B6234' },
+  { name: 'Royal', hex: '#1B4393' }
+];
+
+function initThemeMode() {
+  const toggleBtn = document.getElementById('themeModeToggle');
+  const label = document.getElementById('themeModeLabel');
+  const mobileToggleBtn = document.getElementById('mobileThemeModeToggle');
+  const mobileLabel = document.getElementById('mobileThemeModeLabel');
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (label) label.textContent = 'NIGHTMODE';
+      if (mobileLabel) mobileLabel.textContent = 'NIGHTMODE';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (label) label.textContent = 'DAYMODE';
+      if (mobileLabel) mobileLabel.textContent = 'DAYMODE';
+    }
+    localStorage.setItem('astramend-theme', theme);
+  }
+
+  const savedTheme = localStorage.getItem('astramend-theme') || 'light';
+  applyTheme(savedTheme);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+}
+
+function initThemePalette() {
+  const triggerBtn = document.getElementById('paletteToggleBtn');
+  const popover = document.getElementById('palettePopover');
+  const currentAccentDot = document.getElementById('currentAccentDot');
+  const paletteHeaderDot = document.getElementById('paletteHeaderDot');
+  const swatchesGrid = document.getElementById('paletteSwatchesGrid');
+  const customColorInput = document.getElementById('customColorInput');
+  const customColorHex = document.getElementById('customColorHex');
+
+  function applyAccentColor(hex) {
+    if (!hex) return;
+    document.documentElement.style.setProperty('--user-accent', hex);
+    document.documentElement.style.setProperty('--accent-cyan', hex);
+    document.documentElement.style.setProperty('--border-focus', hex);
+    if (currentAccentDot) currentAccentDot.style.backgroundColor = hex;
+    if (paletteHeaderDot) paletteHeaderDot.style.backgroundColor = hex;
+    if (customColorInput) customColorInput.value = hex;
+    if (customColorHex) customColorHex.textContent = hex.toUpperCase();
+    localStorage.setItem('astramend-accent', hex);
+
+    const swatches = document.querySelectorAll('.swatch-item');
+    swatches.forEach(btn => {
+      const bHex = btn.getAttribute('data-hex');
+      if (bHex && bHex.toLowerCase() === hex.toLowerCase()) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // Populate palette swatches
+  if (swatchesGrid) {
+    swatchesGrid.innerHTML = PALETTE_COLORS.map(c => `
+      <button class="swatch-item" data-hex="${c.hex}" title="${c.name} (${c.hex})" aria-label="${c.name}">
+        <span class="swatch-circle" style="background-color: ${c.hex};"></span>
+        <span class="swatch-name">${c.name}</span>
+      </button>
+    `).join('');
+
+    swatchesGrid.querySelectorAll('.swatch-item').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const hex = btn.getAttribute('data-hex');
+        applyAccentColor(hex);
+      });
+    });
+  }
+
+  // Custom color picker input listener
+  if (customColorInput) {
+    customColorInput.addEventListener('input', (e) => {
+      applyAccentColor(e.target.value);
+    });
+  }
+
+  // Toggle dropdown / popover
+  if (triggerBtn && popover) {
+    triggerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popover.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!popover.contains(e.target) && !triggerBtn.contains(e.target)) {
+        popover.classList.remove('active');
+      }
+    });
+  }
+
+  // Initial load
+  const savedAccent = localStorage.getItem('astramend-accent') || '#0096c7';
+  applyAccentColor(savedAccent);
 }
 
 // Explicitly bind to window for HTML inline onclick handlers and cross-module access

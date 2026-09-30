@@ -42,6 +42,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Instant Theme & Palette Initializer -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('astramend-theme');
+        if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        const accent = localStorage.getItem('astramend-accent');
+        if (accent) {
+          document.documentElement.style.setProperty('--user-accent', accent);
+          document.documentElement.style.setProperty('--accent-cyan', accent);
+          document.documentElement.style.setProperty('--border-focus', accent);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -219,6 +235,64 @@
 
       <!-- Header Action Items: Phone & CTA -->
       <div class="header-actions">
+        <!-- Day / Night Mode Pill Toggle (Matches Screenshot 2) -->
+        <button class="theme-mode-toggle" id="themeModeToggle" aria-label="Toggle Day or Night Mode" title="Toggle Day or Night Mode">
+          <span class="mode-label" id="themeModeLabel">DAYMODE</span>
+          <span class="mode-knob">
+            <svg class="mode-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="mode-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Theme Palette Trigger & Popover Card (Matches Screenshot 1) -->
+        <div class="palette-container">
+          <button class="palette-toggle-btn" id="paletteToggleBtn" aria-label="Open Theme Palette" title="Theme Palette">
+            <span class="palette-preview-dot" id="currentAccentDot"></span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C21.996 6.37 17.525 2 12 2z"></path>
+            </svg>
+          </button>
+
+          <!-- Floating Theme Palette Popover Card -->
+          <div class="palette-popover" id="palettePopover">
+            <div class="palette-header">
+              <div class="palette-indicator" id="paletteHeaderDot"></div>
+              <div class="palette-header-text">
+                <h4>Theme Palette</h4>
+                <p>Select dynamic studio accent</p>
+              </div>
+            </div>
+
+            <div class="palette-grid-scroll">
+              <div class="palette-grid" id="paletteSwatchesGrid">
+                <!-- Swatches injected via main.js -->
+              </div>
+            </div>
+
+            <div class="palette-footer">
+              <span class="custom-color-label">Custom Color</span>
+              <div class="custom-color-control">
+                <div class="custom-color-wrapper">
+                  <input type="color" id="customColorInput" class="custom-color-input" value="#0096C7" aria-label="Choose custom accent color">
+                </div>
+                <span class="custom-color-hex" id="customColorHex">#0096C7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <a href="tel:+919181428067" class="phone-direct" title="Call AstraMend (OPC) Private Limited">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -249,6 +323,31 @@
         <img src="assets/images/AstraMend_Logo_Transparent.png" alt="AstraMend (OPC) Private Limited" style="height: 42px; width: auto;">
         <button id="closeDrawerBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
       </div>
+
+      <!-- Mobile Theme Toggle -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding: 10px 0; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);">
+        <span style="font-size: 0.85rem; font-weight: 700;">Theme Mode</span>
+        <button class="theme-mode-toggle" id="mobileThemeModeToggle" aria-label="Toggle Day or Night Mode">
+          <span class="mode-label" id="mobileThemeModeLabel">DAYMODE</span>
+          <span class="mode-knob">
+            <svg class="mode-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="mode-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+
       <ul class="mobile-nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About Us</a></li>
