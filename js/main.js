@@ -5,6 +5,16 @@
 // Sample Product Catalog with Authentic Formulations
 const PRODUCTS_DATA = [
   {
+    id: 'calvistar-1',
+    category: 'tablets',
+    categoryName: 'Tablets & Capsules',
+    name: 'CALVISTAR™ Softgel Capsules',
+    composition: 'Calcitriol 0.25 mcg + Calcium Citrate Malate 500 mg + Vitamin K2-7 50 mcg + Methylcobalamin 1500 mcg + Zinc Oxide 7.5 mg + Magnesium Oxide 50 mg + L-Methyl-Folate 800 mcg',
+    indication: 'Supports Bone Health, Enhances Immunity, Improves Muscle Function & Maintains Joint Health.',
+    pack: '10 x 10 Softgel Capsules Blister Pack',
+    badge: 'Flagship Formulation'
+  },
+  {
     id: 'astravion-1',
     category: 'tablets',
     categoryName: 'Tablets & Capsules',
@@ -12,7 +22,7 @@ const PRODUCTS_DATA = [
     composition: 'Multivitamin & Antioxidant Formula (Vitamins A, C, D3, E, B-Complex + Zinc, Magnesium + CoQ10, Lutein, Lycopene, Green Tea, Ginkgo Biloba)',
     indication: 'Boosts energy & immunity, daily nutritional support with antioxidant cellular protection.',
     pack: '30 Soft Gelatin Capsules Bottle & Carton',
-    badge: 'Flagship Product'
+    badge: 'Nutritional Care'
   },
   {
     id: 'tab-1',
