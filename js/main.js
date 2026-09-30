@@ -5,6 +5,16 @@
 // Sample Product Catalog with Authentic Formulations
 const PRODUCTS_DATA = [
   {
+    id: 'astravion-1',
+    category: 'tablets',
+    categoryName: 'Tablets & Capsules',
+    name: 'ASTRAVION Capsules',
+    composition: 'Multivitamin & Antioxidant Formula (Vitamins A, C, D3, E, B-Complex + Zinc, Magnesium + CoQ10, Lutein, Lycopene, Green Tea, Ginkgo Biloba)',
+    indication: 'Boosts energy & immunity, daily nutritional support with antioxidant cellular protection.',
+    pack: '30 Soft Gelatin Capsules Bottle & Carton',
+    badge: 'Flagship Product'
+  },
+  {
     id: 'tab-1',
     category: 'tablets',
     categoryName: 'Tablets & Capsules',
