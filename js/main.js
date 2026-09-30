@@ -105,6 +105,16 @@ const PRODUCTS_DATA = [
     badge: 'Quick Relief'
   },
   {
+    id: 'cobastra-1',
+    category: 'injectables',
+    categoryName: 'Injectables',
+    name: 'Cobastra™ PFS Injection',
+    composition: 'Mecobalamin Injection 1500 mcg (Light Sensitive) for I.M. / I.V. / S.C.',
+    indication: 'Peripheral neuropathy, diabetic nerve damage repair, megaloblastic anemia & neurological vitality.',
+    pack: '1 ml Glass Pre-Filled Syringe (PFS) in Blister Pack',
+    badge: 'Pre-Filled Syringe'
+  },
+  {
     id: 'inj-1',
     category: 'injectables',
     categoryName: 'Injectables',
