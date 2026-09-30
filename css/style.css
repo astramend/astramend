@@ -1762,13 +1762,13 @@ textarea.form-control {
 .theme-mode-toggle {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
   background-color: #eaedf0;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-pill);
-  padding: 4px 6px 4px 14px;
+  padding: 4px;
   height: 38px;
+  width: 38px;
   cursor: pointer;
   transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
