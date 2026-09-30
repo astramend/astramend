@@ -1,7 +1,7 @@
 {
   "name": "astramend-healthcare",
   "version": "1.0.0",
-  "description": "Official website for AstraMend Healthcare",
+  "description": "Official website for AstraMend (OPC) Private Limited",
   "scripts": {
     "dev": "vite --port 3000 --open",
     "build": "vite build",

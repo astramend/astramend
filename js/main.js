@@ -1,5 +1,5 @@
 /**
- * AstraMend Healthcare - Interactive Logic & UI Controller
+ * AstraMend (OPC) Private Limited - Interactive Logic & UI Controller
  */
 
 // Sample Product Catalog with Authentic Formulations
@@ -379,7 +379,7 @@ function inquireProduct(productName) {
     subjectInput.value = `Product Inquiry: ${productName}`;
   }
   if (messageInput) {
-    messageInput.value = `Hello AstraMend Healthcare Team,\n\nI would like to inquire about pricing, distribution, and availability for "${productName}". Please send me details.`;
+    messageInput.value = `Hello AstraMend (OPC) Private Limited Team,\n\nI would like to inquire about pricing, distribution, and availability for "${productName}". Please send me details.`;
   }
   openModal('contactModal');
 }
