@@ -741,6 +741,56 @@ button, input, textarea, select {
   margin: 0;
 }
 
+/* Values Grid */
+.values-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.values-list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.value-card {
+  background: #f8fafc;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-cyan);
+  border: 1px solid #e2e8f0;
+  border-left-width: 3px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  background: #ffffff;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.05);
+}
+
+.value-card strong {
+  color: var(--primary-navy);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.value-card span {
+  color: var(--text-body);
+}
+
+@media (max-width: 640px) {
+  .values-list-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Strategic Collaborations Cards */
 .about-collaborations {
   margin: 28px 0 32px;
