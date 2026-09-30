@@ -116,7 +116,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: 'astravion-supp-1',
-    category: 'nutraceuticals',
+    category: 'supplements',
     categoryName: 'Health Supplements',
     name: 'ASTRAVION™ Multivitamin & Antioxidant',
     composition: 'Energy 5.33 kcal, Protein 0.12g, Niacinamide, B-Complex (B1, B2, B6, B12), Folic Acid, Biotin, Calcium Pantothenate, Vitamin A, C, D3, E, K2-7, Zinc, Magnesium, Selenium, Copper, Manganese, Chromium, Iodine, Lutein, Lycopene, Grape Seed Extract, Green Tea Extract, Ginkgo Biloba Extract, Coenzyme Q10, Choline Bitartrate',
@@ -126,7 +126,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: 'nut-1',
-    category: 'nutraceuticals',
+    category: 'supplements',
     categoryName: 'Health Supplements',
     name: 'AstraVit-9G Multivitamin',
     composition: 'Ginseng, Ginkgo Biloba, Green Tea, Grape Seed Extract + Antioxidants & Minerals',
@@ -135,34 +135,24 @@ const PRODUCTS_DATA = [
     badge: 'Daily Wellness'
   },
   {
+    id: 'argivex-1',
+    category: 'nutraceuticals',
+    categoryName: 'Nutraceuticals',
+    name: 'ARGIVEX™ Sachet',
+    composition: 'L-Arginine 3.0 g + Grape Seed Extract (Vitis vinifera) 75 mg (Sugar Free, Gluten Free, Lemon Orange Flavour)',
+    indication: 'Nutraceutical for Women’s Health & Wellness. Supports reproductive health, healthy blood flow, healthy pregnancy, and boosts energy & stamina.',
+    pack: '10 x 5 g Sachet Box',
+    badge: 'Women’s Wellness'
+  },
+  {
     id: 'nut-2',
     category: 'nutraceuticals',
-    categoryName: 'Health Supplements',
+    categoryName: 'Nutraceuticals',
     name: 'MendCal-D3 Max',
     composition: 'Calcium Carbonate 1250mg + Vitamin D3 2000 IU + Zinc & Magnesium',
     indication: 'Bone density, post-menopausal health and osteoporosis support.',
     pack: '3x10 Tablets',
     badge: 'Bone Health'
-  },
-  {
-    id: 'dev-1',
-    category: 'devices',
-    categoryName: 'Medical Devices',
-    name: 'AstraCheck Digital BP Monitor',
-    composition: 'Oscillometric Upper Arm Monitor with Irregular Heartbeat Detection',
-    indication: 'Accurate clinical grade blood pressure tracking at home or clinics.',
-    pack: 'Device Box with Cuff',
-    badge: 'Precision CE'
-  },
-  {
-    id: 'dev-2',
-    category: 'devices',
-    categoryName: 'Medical Devices',
-    name: 'AstraPulse Smart Oximeter',
-    composition: 'OLED Display Fingertip Pulse Oximeter (SpO2 & Pulse Rate)',
-    indication: 'Instant oxygen saturation monitoring for respiratory care.',
-    pack: 'Unit Pack + Lanyard',
-    badge: 'Instant Read'
   }
 ];
 
