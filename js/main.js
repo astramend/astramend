@@ -2,6 +2,13 @@
  * AstraMend (OPC) Private Limited - Interactive Logic & UI Controller
  */
 
+import calvistarImg from '../assets/images/calvistar-capsules.png';
+import astramupImg from '../assets/images/astramup-ointment.png';
+import cobastraImg from '../assets/images/cobastra-injectable.png';
+import astraxonImg from '../assets/images/astraxon-tz-injection.png';
+import astravionImg from '../assets/images/astravion-health-supplement.png';
+import argivexImg from '../assets/images/argivex-sachet.png';
+
 // Official AstraMend (OPC) Private Limited Product Catalog
 const PRODUCTS_DATA = [
   {
@@ -13,7 +20,7 @@ const PRODUCTS_DATA = [
     indication: 'Supports Bone Health, Enhances Immunity, Improves Muscle Function & Maintains Joint Health.',
     pack: '10 x 10 Softgel Capsules Blister Pack',
     badge: 'Flagship Formulation',
-    image: 'assets/images/calvistar-capsules.png'
+    image: calvistarImg
   },
   {
     id: 'astramup-1',
@@ -24,7 +31,7 @@ const PRODUCTS_DATA = [
     indication: 'Topical antibacterial treatment for primary and secondary skin infections, impetigo, folliculitis, infected cuts & wounds.',
     pack: '15 g Laminated Tube & Mono Carton',
     badge: 'Antibacterial Ointment',
-    image: 'assets/images/astramup-ointment.png'
+    image: astramupImg
   },
   {
     id: 'cobastra-1',
@@ -35,7 +42,7 @@ const PRODUCTS_DATA = [
     indication: 'Peripheral neuropathy, diabetic nerve damage repair, megaloblastic anemia & neurological vitality.',
     pack: '1 ml Glass Pre-Filled Syringe (PFS) in Protective Blister Pack',
     badge: '1 ml Pre-Filled Syringe',
-    image: 'assets/images/cobastra-injectable.png'
+    image: cobastraImg
   },
   {
     id: 'astraxon-tz-1',
@@ -46,7 +53,7 @@ const PRODUCTS_DATA = [
     indication: 'Dual Action broad-spectrum critical care antibiotic for severe nosocomial, lower respiratory, urinary tract & intra-abdominal bacterial infections.',
     pack: '1.125 gm Glass Vial + 10 ml Sterile Water for Injections IP (I.M./I.V.)',
     badge: 'Dual Action 1.125 gm',
-    image: 'assets/images/astraxon-tz-injection.png'
+    image: astraxonImg
   },
   {
     id: 'astravion-supp-1',
@@ -57,7 +64,7 @@ const PRODUCTS_DATA = [
     indication: 'Boosts energy & immunity, daily nutritional support with antioxidant cellular protection & vital stamina.',
     pack: '30 Softgel Capsules Bottle & Carton Pack',
     badge: 'Flagship Supplement',
-    image: 'assets/images/astravion-health-supplement.png'
+    image: astravionImg
   },
   {
     id: 'argivex-1',
@@ -68,7 +75,7 @@ const PRODUCTS_DATA = [
     indication: 'Nutraceutical for Women’s Health & Wellness. Supports reproductive health, healthy blood flow, healthy pregnancy, and boosts energy & stamina.',
     pack: '10 x 5 g Sachet Box',
     badge: 'Women’s Wellness',
-    image: 'assets/images/argivex-sachet.png'
+    image: argivexImg
   }
 ];
 
