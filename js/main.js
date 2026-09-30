@@ -2,7 +2,7 @@
  * AstraMend (OPC) Private Limited - Interactive Logic & UI Controller
  */
 
-// Sample Product Catalog with Authentic Formulations
+// Official AstraMend (OPC) Private Limited Product Catalog
 const PRODUCTS_DATA = [
   {
     id: 'calvistar-1',
@@ -16,46 +16,6 @@ const PRODUCTS_DATA = [
     image: 'assets/images/calvistar-capsules.png'
   },
   {
-    id: 'tab-1',
-    category: 'tablets',
-    categoryName: 'Tablets & Capsules',
-    name: 'AstraCold Total',
-    composition: 'Paracetamol 500mg + Phenylephrine HCl 5mg + Chlorpheniramine Maleate 2mg',
-    indication: 'Relief from cold, sneezing, nasal congestion and feverish aches.',
-    pack: '10x10 Blister',
-    badge: 'Fast Acting'
-  },
-  {
-    id: 'tab-2',
-    category: 'tablets',
-    categoryName: 'Tablets & Capsules',
-    name: 'MendClav-625',
-    composition: 'Amoxicillin 500mg + Potassium Clavulanate 125mg IP',
-    indication: 'Broad spectrum anti-bacterial for respiratory & systemic infections.',
-    pack: '10x1x6 Alu-Alu',
-    badge: 'Antibiotic'
-  },
-  {
-    id: 'tab-3',
-    category: 'tablets',
-    categoryName: 'Tablets & Capsules',
-    name: 'AstraPan-DSR',
-    composition: 'Pantoprazole Sodium 40mg + Domperidone 30mg SR',
-    indication: 'GERD, severe acidity, reflux esophagitis & dyspepsia.',
-    pack: '10x10 Alu-Alu',
-    badge: 'Gastro Care'
-  },
-  {
-    id: 'tab-4',
-    category: 'tablets',
-    categoryName: 'Tablets & Capsules',
-    name: 'MendDol-SP',
-    composition: 'Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg',
-    indication: 'Potent anti-inflammatory and pain relief for joint & dental pain.',
-    pack: '10x10 Blister',
-    badge: 'Pain Relief'
-  },
-  {
     id: 'astramup-1',
     category: 'ointments',
     categoryName: 'Ointments & Creams',
@@ -65,26 +25,6 @@ const PRODUCTS_DATA = [
     pack: '15 g Laminated Tube & Mono Carton',
     badge: 'Antibacterial Ointment',
     image: 'assets/images/astramup-ointment.png'
-  },
-  {
-    id: 'crm-1',
-    category: 'ointments',
-    categoryName: 'Ointments & Creams',
-    name: 'AstraDerm Plus Cream',
-    composition: 'Clobetasol Propionate 0.05% + Neomycin 0.5% + Miconazole Nitrate 2.0%',
-    indication: 'Triple action anti-fungal, anti-bacterial and anti-inflammatory skin cream.',
-    pack: '15g Lami Tube',
-    badge: 'Dermacare'
-  },
-  {
-    id: 'crm-2',
-    category: 'ointments',
-    categoryName: 'Ointments & Creams',
-    name: 'MendGel Pain Balm',
-    composition: 'Diclofenac Diethylamine 1.16% + Linseed Oil + Methyl Salicylate + Menthol',
-    indication: 'Rapid pain relieving gel for sprains, muscle stiffness and backache.',
-    pack: '30g Tube',
-    badge: 'Quick Relief'
   },
   {
     id: 'cobastra-1',
@@ -109,16 +49,6 @@ const PRODUCTS_DATA = [
     image: 'assets/images/astraxon-tz-injection.png'
   },
   {
-    id: 'inj-2',
-    category: 'injectables',
-    categoryName: 'Injectables',
-    name: 'MendPan-40 Injection',
-    composition: 'Pantoprazole Sodium for Injection IP 40mg (Lyophilized)',
-    indication: 'Emergency parenteral control of gastric acid and ulcers.',
-    pack: 'Vial with Solvent',
-    badge: 'Hospital Care'
-  },
-  {
     id: 'astravion-supp-1',
     category: 'supplements',
     categoryName: 'Health Supplements',
@@ -130,16 +60,6 @@ const PRODUCTS_DATA = [
     image: 'assets/images/astravion-health-supplement.png'
   },
   {
-    id: 'nut-1',
-    category: 'supplements',
-    categoryName: 'Health Supplements',
-    name: 'AstraVit-9G Multivitamin',
-    composition: 'Ginseng, Ginkgo Biloba, Green Tea, Grape Seed Extract + Antioxidants & Minerals',
-    indication: 'Daily vitality, mental alertness, immunity booster and anti-fatigue.',
-    pack: '10x1x10 Softgels',
-    badge: 'Daily Wellness'
-  },
-  {
     id: 'argivex-1',
     category: 'nutraceuticals',
     categoryName: 'Nutraceuticals',
@@ -149,16 +69,6 @@ const PRODUCTS_DATA = [
     pack: '10 x 5 g Sachet Box',
     badge: 'Women’s Wellness',
     image: 'assets/images/argivex-sachet.png'
-  },
-  {
-    id: 'nut-2',
-    category: 'nutraceuticals',
-    categoryName: 'Nutraceuticals',
-    name: 'MendCal-D3 Max',
-    composition: 'Calcium Carbonate 1250mg + Vitamin D3 2000 IU + Zinc & Magnesium',
-    indication: 'Bone density, post-menopausal health and osteoporosis support.',
-    pack: '3x10 Tablets',
-    badge: 'Bone Health'
   }
 ];
 
