@@ -15,6 +15,26 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Immediate Modal Handler to avoid race conditions with module scripts -->
+  <script>
+    function openModal(id) {
+      var m = document.getElementById(id);
+      if (m) {
+        m.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeModal(id) {
+      var m = document.getElementById(id);
+      if (m) {
+        m.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+  </script>
 </head>
 <body>
 
@@ -756,13 +776,13 @@
       <div class="footer-bottom">
         <p>&copy; 2026 AstraMend (OPC) Private Limited. All Rights Reserved.</p>
         <div class="footer-legal-links">
-          <a href="javascript:void(0)" onclick="openModal('privacyModal')">Privacy Policy</a>
+          <a href="privacy-policy.html" data-modal="privacyModal" onclick="if(window.openModal){openModal('privacyModal');return false;}">Privacy Policy</a>
           <span>|</span>
-          <a href="javascript:void(0)" onclick="openModal('termsModal')">Terms & Conditions</a>
+          <a href="terms-conditions.html" data-modal="termsModal" onclick="if(window.openModal){openModal('termsModal');return false;}">Terms & Conditions</a>
           <span>|</span>
-          <a href="javascript:void(0)" onclick="openModal('disclaimerModal')">Medical Disclaimer</a>
+          <a href="javascript:void(0)" data-modal="disclaimerModal" onclick="if(window.openModal){openModal('disclaimerModal');return false;}">Medical Disclaimer</a>
           <span>|</span>
-          <a href="javascript:void(0)" onclick="openModal('contactModal')">Contact Us</a>
+          <a href="javascript:void(0)" data-modal="contactModal" onclick="if(window.openModal){openModal('contactModal');return false;}">Contact Us</a>
         </div>
       </div>
     </div>

@@ -1214,19 +1214,80 @@ button, input, textarea, select {
   gap: 16px;
   font-size: 0.8125rem;
   color: #64748b;
+  position: relative;
+  z-index: 50;
 }
 
 .footer-legal-links {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 60;
 }
 
 .footer-legal-links a {
-  color: #64748b;
+  color: #94a3b8;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-block;
+  padding: 4px 2px;
+  pointer-events: auto;
 }
 
 .footer-legal-links a:hover {
   color: #38bdf8;
+  text-decoration-color: #38bdf8;
+}
+
+.footer-legal-links span {
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+}
+
+/* Floating Actions */
+.floating-actions {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.floating-whatsapp-btn,
+.floating-call-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  pointer-events: auto;
+}
+
+.floating-whatsapp-btn {
+  background: #25d366;
+}
+
+.floating-call-btn {
+  background: var(--primary-navy);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.floating-whatsapp-btn:hover,
+.floating-call-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
 /* ==========================================================================

@@ -456,3 +456,10 @@ function showToast(message) {
     toast.classList.remove('show');
   }, 4500);
 }
+
+// Explicitly bind to window for HTML inline onclick handlers and cross-module access
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.openProductCatalog = openProductCatalog;
+window.inquireProduct = inquireProduct;
+window.showToast = showToast;
