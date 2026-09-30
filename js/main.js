@@ -55,36 +55,6 @@ const PRODUCTS_DATA = [
     badge: 'Pain Relief'
   },
   {
-    id: 'syr-1',
-    category: 'syrups',
-    categoryName: 'Syrups & Suspensions',
-    name: 'AstraKuf-DX',
-    composition: 'Dextromethorphan HBr 10mg + Chlorpheniramine 2mg + Phenylephrine 5mg / 5ml',
-    indication: 'Dry irritating cough, allergy symptoms & soothing throat syrup.',
-    pack: '100 ml Bottle with Cup',
-    badge: 'Sugar Free'
-  },
-  {
-    id: 'syr-2',
-    category: 'syrups',
-    categoryName: 'Syrups & Suspensions',
-    name: 'AstraKuf-LS',
-    composition: 'Levosalbutamol 1mg + Ambroxol HCl 30mg + Guaiphenesin 50mg / 5ml',
-    indication: 'Productive wet cough, bronchitis and bronchial asthma.',
-    pack: '100 ml Bottle with Cup',
-    badge: 'Bronchodilator'
-  },
-  {
-    id: 'syr-3',
-    category: 'syrups',
-    categoryName: 'Syrups & Suspensions',
-    name: 'MendZyme Digestive Syrup',
-    composition: 'Fungal Diastase 50mg + Pepsin 10mg Flavoured Base',
-    indication: 'Digestive enzyme syrup for appetite stimulation and bloating.',
-    pack: '200 ml Bottle',
-    badge: 'Digestive Care'
-  },
-  {
     id: 'astramup-1',
     category: 'ointments',
     categoryName: 'Ointments & Creams',
