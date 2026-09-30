@@ -85,6 +85,16 @@ const PRODUCTS_DATA = [
     badge: 'Digestive Care'
   },
   {
+    id: 'astramup-1',
+    category: 'ointments',
+    categoryName: 'Ointments & Creams',
+    name: 'ASTRAMUP Ointment',
+    composition: 'Mupirocin Ointment IP 2% w/w (For External Use Only)',
+    indication: 'Topical antibacterial treatment for primary and secondary skin infections, impetigo, folliculitis, infected cuts & wounds.',
+    pack: '15 g Laminated Tube & Mono Carton',
+    badge: 'Antibacterial Ointment'
+  },
+  {
     id: 'crm-1',
     category: 'ointments',
     categoryName: 'Ointments & Creams',
