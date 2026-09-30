@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.astramend.co.in/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/AstraMend_Logo_Transparent.png</image:loc>
+      <image:title>AstraMend (OPC) Private Limited Official Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/calvistar-capsules.png</image:loc>
+      <image:title>CALVISTAR Softgel Capsules</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/astramup-ointment.png</image:loc>
+      <image:title>ASTRAMUP Mupirocin Ointment</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/cobastra-injectable.png</image:loc>
+      <image:title>Cobastra PFS Mecobalamin Injection</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/astraxon-tz-injection.png</image:loc>
+      <image:title>ASTRAXON-TZ Ceftriaxone and Tazobactam Injection</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/astravion-health-supplement.png</image:loc>
+      <image:title>ASTRAVION Multivitamin and Antioxidant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.astramend.co.in/assets/images/argivex-sachet.png</image:loc>
+      <image:title>ARGIVEX Sachet for Womens Health and Wellness</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.astramend.co.in/privacy-policy</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.astramend.co.in/terms-conditions</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
