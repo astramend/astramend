@@ -385,47 +385,214 @@ function inquireProduct(productName) {
 }
 
 /* ==========================================================================
-   Contact Form & Quick Inquiries
+   Contact Form & Career Applications (Formspree + Direct Delivery)
    ========================================================================== */
+// Formspree Endpoint for background email delivery to astramendhealthcare@gmail.com
+// Users can provide their free Formspree Form ID (e.g., 'https://formspree.io/f/xyzabced')
+const FORMSPREE_ENDPOINT = ''; 
+
 function initContactForm() {
   const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactStatus');
+  const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('contactName').value.trim();
       const phone = document.getElementById('contactPhone').value.trim();
-      const email = document.getElementById('contactEmail').value.trim();
-      const subject = document.getElementById('contactSubject').value.trim();
-      const message = document.getElementById('contactMessage').value.trim();
+      const email = document.getElementById('contactEmail').value.trim() || 'Not provided';
+      const subject = document.getElementById('contactSubject').value.trim() || 'General Inquiry';
+      const message = document.getElementById('contactMessage').value.trim() || 'No message specified';
 
       if (!name || !phone) {
         showToast('Please provide your name and contact phone number.');
         return;
       }
 
-      // Prepare mailto fallback or WhatsApp fallback
-      const fullMessage = `Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0ASubject: ${subject}%0D%0AMessage: ${message}`;
-      
-      // Close modal
-      closeModal('contactModal');
+      // UI loading state
+      if (contactSubmitBtn) {
+        contactSubmitBtn.disabled = true;
+        contactSubmitBtn.textContent = 'Sending...';
+      }
 
-      // Show instant feedback toast
-      showToast(`Thank you ${name}! Your inquiry has been logged. We will contact you at ${phone}.`);
+      if (contactStatus) {
+        contactStatus.style.display = 'block';
+        contactStatus.style.background = '#f0f9ff';
+        contactStatus.style.border = '1px solid #bae6fd';
+        contactStatus.style.color = '#0369a1';
+        contactStatus.innerHTML = `<span>⏳ Delivering your inquiry to AstraMend (OPC) Private Limited...</span>`;
+      }
 
-      // Optionally offer direct WhatsApp forwarding
-      contactForm.reset();
+      const emailSubject = `AstraMend Website Inquiry from ${name}: ${subject}`;
+      const emailBody = `AstraMend (OPC) Private Limited - Official Website Inquiry\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nInquiry Nature: ${subject}\n\nMessage / Requirements:\n${message}\n\nSent via https://www.astramend.co.in`;
+      const mailtoUrl = `mailto:astramendhealthcare@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      const whatsappText = `Hello AstraMend (OPC) Private Limited,\n\nName: ${name}\nPhone: ${phone}\nInquiry: ${subject}\nRequirements: ${message}`;
+      const whatsappUrl = `https://wa.me/919181428067?text=${encodeURIComponent(whatsappText)}`;
+
+      let sentViaFormspree = false;
+
+      // If Formspree endpoint is configured, send in background
+      if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT.startsWith('https://formspree.io/f/')) {
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name,
+              phone,
+              email,
+              subject,
+              message,
+              _replyto: email !== 'Not provided' ? email : 'astramendhealthcare@gmail.com'
+            })
+          });
+
+          if (res.ok) {
+            sentViaFormspree = true;
+          }
+        } catch (err) {
+          console.warn('Formspree dispatch error, falling back:', err);
+        }
+      }
+
+      if (sentViaFormspree) {
+        if (contactStatus) {
+          contactStatus.style.background = '#f0fdf4';
+          contactStatus.style.border = '1px solid #86efac';
+          contactStatus.style.color = '#15803d';
+          contactStatus.innerHTML = `
+            <div style="font-weight: 700; margin-bottom: 6px;">✅ Inquiry Delivered to Gmail!</div>
+            <p style="margin-bottom: 10px; font-size: 0.85rem;">Your message has been emailed directly to <strong>astramendhealthcare@gmail.com</strong>. Our team will contact you at <strong>${phone}</strong> shortly.</p>
+            <a href="${whatsappUrl}" target="_blank" rel="noopener" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 6px; background: #25d366; color: white; border: none; font-size: 0.8rem; padding: 6px 14px;">
+              <span>💬 Also Chat on WhatsApp (+91 91814 28067)</span>
+            </a>
+          `;
+        }
+        showToast(`Thank you ${name}! Inquiry delivered to astramendhealthcare@gmail.com.`);
+        contactForm.reset();
+      } else {
+        // Fallback: Trigger direct mailto & provide instant WhatsApp link
+        window.open(mailtoUrl, '_blank');
+
+        if (contactStatus) {
+          contactStatus.style.background = '#f0fdf4';
+          contactStatus.style.border = '1px solid #86efac';
+          contactStatus.style.color = '#15803d';
+          contactStatus.innerHTML = `
+            <div style="font-weight: 700; margin-bottom: 6px;">✅ Inquiry Prepared for astramendhealthcare@gmail.com</div>
+            <p style="margin-bottom: 10px; font-size: 0.85rem;">Your email app has been opened with your inquiry addressed to <strong>astramendhealthcare@gmail.com</strong>. You can also chat directly on WhatsApp:</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="${mailtoUrl}" class="btn btn-sm btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">✉️ Open in Gmail / Email App</a>
+              <a href="${whatsappUrl}" target="_blank" rel="noopener" class="btn btn-sm btn-outline" style="background: #25d366; color: white; border: none; font-size: 0.8rem; padding: 6px 14px;">💬 Send via WhatsApp (+91 91814 28067)</a>
+            </div>
+          `;
+        }
+        showToast(`Inquiry ready! Click Send in your email app or tap WhatsApp.`);
+      }
+
+      if (contactSubmitBtn) {
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.textContent = 'Submit Inquiry';
+      }
     });
   }
 
   // Career Form Submission
   const careerForm = document.getElementById('careerForm');
+  const careerStatus = document.getElementById('careerStatus');
+  const careerSubmitBtn = document.getElementById('careerSubmitBtn');
+
   if (careerForm) {
-    careerForm.addEventListener('submit', (e) => {
+    careerForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      closeModal('careersModal');
-      showToast('Application submitted successfully! Our HR team will reach out to you.');
-      careerForm.reset();
+
+      const name = document.getElementById('careerName').value.trim();
+      const phone = document.getElementById('careerPhone').value.trim();
+      const email = document.getElementById('careerEmail').value.trim();
+      const role = document.getElementById('careerRole').value;
+      const experience = document.getElementById('careerExperience').value.trim() || 'Fresher / Not specified';
+
+      if (!name || !phone || !email) {
+        showToast('Please fill out all required fields.');
+        return;
+      }
+
+      if (careerSubmitBtn) {
+        careerSubmitBtn.disabled = true;
+        careerSubmitBtn.textContent = 'Submitting...';
+      }
+
+      const emailSubject = `Job Application - ${role}: ${name}`;
+      const emailBody = `AstraMend (OPC) Private Limited - Career Application\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nRole Applied: ${role}\n\nExperience & Qualifications:\n${experience}\n\nSent via https://www.astramend.co.in`;
+      const mailtoUrl = `mailto:astramendhealthcare@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      const whatsappText = `Hello AstraMend HR,\n\nI am applying for the role of *${role}*.\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nExperience: ${experience}`;
+      const whatsappUrl = `https://wa.me/919181428067?text=${encodeURIComponent(whatsappText)}`;
+
+      let sentViaFormspree = false;
+      if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT.startsWith('https://formspree.io/f/')) {
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              application_type: 'Career',
+              name,
+              phone,
+              email,
+              role,
+              experience
+            })
+          });
+          if (res.ok) sentViaFormspree = true;
+        } catch (err) {
+          console.warn('Career dispatch error:', err);
+        }
+      }
+
+      if (sentViaFormspree) {
+        if (careerStatus) {
+          careerStatus.style.display = 'block';
+          careerStatus.style.background = '#f0fdf4';
+          careerStatus.style.border = '1px solid #86efac';
+          careerStatus.style.color = '#15803d';
+          careerStatus.innerHTML = `
+            <div style="font-weight: 700; margin-bottom: 6px;">✅ Application Submitted!</div>
+            <p style="margin-bottom: 0; font-size: 0.85rem;">Your resume details have been sent to <strong>astramendhealthcare@gmail.com</strong>. Our HR team will reach out to you.</p>
+          `;
+        }
+        showToast('Application submitted successfully!');
+        careerForm.reset();
+      } else {
+        window.open(mailtoUrl, '_blank');
+        if (careerStatus) {
+          careerStatus.style.display = 'block';
+          careerStatus.style.background = '#f0fdf4';
+          careerStatus.style.border = '1px solid #86efac';
+          careerStatus.style.color = '#15803d';
+          careerStatus.innerHTML = `
+            <div style="font-weight: 700; margin-bottom: 6px;">✅ Application Prepared for HR</div>
+            <p style="margin-bottom: 10px; font-size: 0.85rem;">Your email app has been opened with your application pre-filled to <strong>astramendhealthcare@gmail.com</strong>. You can also connect via WhatsApp:</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="${mailtoUrl}" class="btn btn-sm btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">✉️ Open Email App</a>
+              <a href="${whatsappUrl}" target="_blank" rel="noopener" class="btn btn-sm btn-outline" style="background: #25d366; color: white; border: none; font-size: 0.8rem; padding: 6px 14px;">💬 Send via WhatsApp</a>
+            </div>
+          `;
+        }
+        showToast('Application ready! Click Send in your email app.');
+      }
+
+      if (careerSubmitBtn) {
+        careerSubmitBtn.disabled = false;
+        careerSubmitBtn.textContent = 'Submit Application';
+      }
     });
   }
 }

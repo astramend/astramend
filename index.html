@@ -836,36 +836,38 @@
         </div>
 
         <form id="contactForm">
+          <div id="contactStatus" style="display: none; padding: 12px 16px; border-radius: 10px; margin-bottom: 16px; font-size: 0.875rem;"></div>
+
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="contactName">Your Name *</label>
-              <input type="text" id="contactName" class="form-control" placeholder="Dr. / Mr. / Ms." required>
+              <input type="text" id="contactName" name="name" class="form-control" placeholder="Dr. / Mr. / Ms." required>
             </div>
             <div class="form-group">
               <label class="form-label" for="contactPhone">Phone / Mobile *</label>
-              <input type="tel" id="contactPhone" class="form-control" placeholder="+91 9181428067" required>
+              <input type="tel" id="contactPhone" name="phone" class="form-control" placeholder="+91 9181428067" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="contactEmail">Email Address</label>
-              <input type="email" id="contactEmail" class="form-control" placeholder="doctor@clinic.com">
+              <input type="email" id="contactEmail" name="email" class="form-control" placeholder="doctor@clinic.com">
             </div>
             <div class="form-group">
               <label class="form-label" for="contactSubject">Inquiry Nature</label>
-              <input type="text" id="contactSubject" class="form-control" placeholder="PCD Pharma / Supply / Order">
+              <input type="text" id="contactSubject" name="subject" class="form-control" placeholder="PCD Pharma / Supply / Order">
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="contactMessage">Your Message / Required Formulations</label>
-            <textarea id="contactMessage" class="form-control" placeholder="Specify required medicines, batch volume, or regional dealership interests..."></textarea>
+            <textarea id="contactMessage" name="message" class="form-control" placeholder="Specify required medicines, batch volume, or regional dealership interests..."></textarea>
           </div>
 
-          <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 16px;">
+          <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center; margin-top: 16px;">
             <button type="button" class="btn btn-outline" data-modal-close>Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+            <button type="submit" id="contactSubmitBtn" class="btn btn-primary">Submit Inquiry</button>
           </div>
         </form>
       </div>
@@ -960,24 +962,26 @@
         </div>
 
         <form id="careerForm">
+          <div id="careerStatus" style="display: none; padding: 12px 16px; border-radius: 10px; margin-bottom: 16px; font-size: 0.875rem;"></div>
+
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">Full Name *</label>
-              <input type="text" class="form-control" required placeholder="Your full name">
+              <label class="form-label" for="careerName">Full Name *</label>
+              <input type="text" id="careerName" name="name" class="form-control" required placeholder="Your full name">
             </div>
             <div class="form-group">
-              <label class="form-label">Mobile Number *</label>
-              <input type="tel" class="form-control" required placeholder="+91 9181428067">
+              <label class="form-label" for="careerPhone">Mobile Number *</label>
+              <input type="tel" id="careerPhone" name="phone" class="form-control" required placeholder="+91 9181428067">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">Email Address *</label>
-              <input type="email" class="form-control" required placeholder="you@example.com">
+              <label class="form-label" for="careerEmail">Email Address *</label>
+              <input type="email" id="careerEmail" name="email" class="form-control" required placeholder="you@example.com">
             </div>
             <div class="form-group">
-              <label class="form-label">Role Applied For</label>
-              <select class="form-control">
+              <label class="form-label" for="careerRole">Role Applied For</label>
+              <select id="careerRole" name="role" class="form-control">
                 <option>Medical Representative (MR)</option>
                 <option>Area Sales Manager (ASM)</option>
                 <option>Quality Assurance Executive</option>
@@ -987,12 +991,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Brief Experience Summary & Qualifications</label>
-            <textarea class="form-control" placeholder="Mention your degree (B.Pharm, M.Pharm, B.Sc) and previous pharmaceutical experience..."></textarea>
+            <label class="form-label" for="careerExperience">Brief Experience Summary & Qualifications</label>
+            <textarea id="careerExperience" name="experience" class="form-control" placeholder="Mention your degree (B.Pharm, M.Pharm, B.Sc) and previous pharmaceutical experience..."></textarea>
           </div>
-          <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 16px;">
+          <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center; margin-top: 16px;">
             <button type="button" class="btn btn-outline" data-modal-close>Close</button>
-            <button type="submit" class="btn btn-primary">Submit Application</button>
+            <button type="submit" id="careerSubmitBtn" class="btn btn-primary">Submit Application</button>
           </div>
         </form>
       </div>
