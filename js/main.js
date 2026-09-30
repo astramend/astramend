@@ -388,8 +388,7 @@ function inquireProduct(productName) {
    Contact Form & Career Applications (Formspree + Direct Delivery)
    ========================================================================== */
 // Formspree Endpoint for background email delivery to astramendhealthcare@gmail.com
-// Users can provide their free Formspree Form ID (e.g., 'https://formspree.io/f/xyzabced')
-const FORMSPREE_ENDPOINT = ''; 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbglweje'; 
 
 function initContactForm() {
   const contactForm = document.getElementById('contactForm');
@@ -433,7 +432,7 @@ function initContactForm() {
 
       let sentViaFormspree = false;
 
-      // If Formspree endpoint is configured, send in background
+      // Send to Formspree in background
       if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT.startsWith('https://formspree.io/f/')) {
         try {
           const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -443,12 +442,12 @@ function initContactForm() {
               'Accept': 'application/json'
             },
             body: JSON.stringify({
+              _subject: `New Inquiry from ${name} (${subject})`,
               name,
               phone,
               email,
               subject,
-              message,
-              _replyto: email !== 'Not provided' ? email : 'astramendhealthcare@gmail.com'
+              message
             })
           });
 
@@ -543,6 +542,7 @@ function initContactForm() {
               'Accept': 'application/json'
             },
             body: JSON.stringify({
+              _subject: `Job Application - ${role}: ${name}`,
               application_type: 'Career',
               name,
               phone,
