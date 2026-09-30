@@ -15,16 +15,6 @@ const PRODUCTS_DATA = [
     badge: 'Flagship Formulation'
   },
   {
-    id: 'astravion-1',
-    category: 'tablets',
-    categoryName: 'Tablets & Capsules',
-    name: 'ASTRAVION Capsules',
-    composition: 'Multivitamin & Antioxidant Formula (Vitamins A, C, D3, E, B-Complex + Zinc, Magnesium + CoQ10, Lutein, Lycopene, Green Tea, Ginkgo Biloba)',
-    indication: 'Boosts energy & immunity, daily nutritional support with antioxidant cellular protection.',
-    pack: '30 Soft Gelatin Capsules Bottle & Carton',
-    badge: 'Nutritional Care'
-  },
-  {
     id: 'tab-1',
     category: 'tablets',
     categoryName: 'Tablets & Capsules',
@@ -125,9 +115,19 @@ const PRODUCTS_DATA = [
     badge: 'Hospital Care'
   },
   {
+    id: 'astravion-supp-1',
+    category: 'nutraceuticals',
+    categoryName: 'Health Supplements',
+    name: 'ASTRAVION™ Multivitamin & Antioxidant',
+    composition: 'Energy 5.33 kcal, Protein 0.12g, Niacinamide, B-Complex (B1, B2, B6, B12), Folic Acid, Biotin, Calcium Pantothenate, Vitamin A, C, D3, E, K2-7, Zinc, Magnesium, Selenium, Copper, Manganese, Chromium, Iodine, Lutein, Lycopene, Grape Seed Extract, Green Tea Extract, Ginkgo Biloba Extract, Coenzyme Q10, Choline Bitartrate',
+    indication: 'Boosts energy & immunity, daily nutritional support with antioxidant cellular protection & vital stamina.',
+    pack: '30 Softgel Capsules Bottle & Carton Pack',
+    badge: 'Flagship Supplement'
+  },
+  {
     id: 'nut-1',
     category: 'nutraceuticals',
-    categoryName: 'Nutraceuticals',
+    categoryName: 'Health Supplements',
     name: 'AstraVit-9G Multivitamin',
     composition: 'Ginseng, Ginkgo Biloba, Green Tea, Grape Seed Extract + Antioxidants & Minerals',
     indication: 'Daily vitality, mental alertness, immunity booster and anti-fatigue.',
@@ -137,7 +137,7 @@ const PRODUCTS_DATA = [
   {
     id: 'nut-2',
     category: 'nutraceuticals',
-    categoryName: 'Nutraceuticals',
+    categoryName: 'Health Supplements',
     name: 'MendCal-D3 Max',
     composition: 'Calcium Carbonate 1250mg + Vitamin D3 2000 IU + Zinc & Magnesium',
     indication: 'Bone density, post-menopausal health and osteoporosis support.',
