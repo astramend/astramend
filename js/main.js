@@ -12,7 +12,8 @@ const PRODUCTS_DATA = [
     composition: 'Calcitriol 0.25 mcg + Calcium Citrate Malate 500 mg + Vitamin K2-7 50 mcg + Methylcobalamin 1500 mcg + Zinc Oxide 7.5 mg + Magnesium Oxide 50 mg + L-Methyl-Folate 800 mcg',
     indication: 'Supports Bone Health, Enhances Immunity, Improves Muscle Function & Maintains Joint Health.',
     pack: '10 x 10 Softgel Capsules Blister Pack',
-    badge: 'Flagship Formulation'
+    badge: 'Flagship Formulation',
+    image: 'assets/images/calvistar-capsules.png'
   },
   {
     id: 'tab-1',
@@ -62,7 +63,8 @@ const PRODUCTS_DATA = [
     composition: 'Mupirocin Ointment IP 2% w/w (For External Use Only)',
     indication: 'Topical antibacterial treatment for primary and secondary skin infections, impetigo, folliculitis, infected cuts & wounds.',
     pack: '15 g Laminated Tube & Mono Carton',
-    badge: 'Antibacterial Ointment'
+    badge: 'Antibacterial Ointment',
+    image: 'assets/images/astramup-ointment.png'
   },
   {
     id: 'crm-1',
@@ -89,20 +91,22 @@ const PRODUCTS_DATA = [
     category: 'injectables',
     categoryName: 'Injectables',
     name: 'Cobastra™ PFS Injection',
-    composition: 'Mecobalamin Injection 1500 mcg (Light Sensitive) for I.M. / I.V. / S.C.',
+    composition: 'Mecobalamin Injection 1500 mcg (Light Sensitive) for I.M. / I.V. / S.C. use only',
     indication: 'Peripheral neuropathy, diabetic nerve damage repair, megaloblastic anemia & neurological vitality.',
-    pack: '1 ml Glass Pre-Filled Syringe (PFS) in Blister Pack',
-    badge: 'Pre-Filled Syringe'
+    pack: '1 ml Glass Pre-Filled Syringe (PFS) in Protective Blister Pack',
+    badge: '1 ml Pre-Filled Syringe',
+    image: 'assets/images/cobastra-injectable.png'
   },
   {
-    id: 'inj-1',
+    id: 'astraxon-tz-1',
     category: 'injectables',
     categoryName: 'Injectables',
-    name: 'AstraCef-1000 Injection',
-    composition: 'Ceftriaxone Sodium Sterile IP 1000mg with Sterile Water for Inj.',
-    indication: 'Critical care cephalosporin antibiotic for severe bacterial infections.',
-    pack: 'Single Vial + WFI',
-    badge: 'Critical Care'
+    name: 'ASTRAXON-TZ Injection',
+    composition: 'Ceftriaxone & Tazobactam For Injection 1.125 gm (Ceftriaxone Sodium Sterile IP Eq. to Ceftriaxone 1000 mg + Tazobactam Sodium Sterile Eq. to Tazobactam 125 mg) with Sterile Water for Injections IP 10 ml',
+    indication: 'Dual Action broad-spectrum critical care antibiotic for severe nosocomial, lower respiratory, urinary tract & intra-abdominal bacterial infections.',
+    pack: '1.125 gm Glass Vial + 10 ml Sterile Water for Injections IP (I.M./I.V.)',
+    badge: 'Dual Action 1.125 gm',
+    image: 'assets/images/astraxon-tz-injection.png'
   },
   {
     id: 'inj-2',
@@ -122,7 +126,8 @@ const PRODUCTS_DATA = [
     composition: 'Energy 5.33 kcal, Protein 0.12g, Niacinamide, B-Complex (B1, B2, B6, B12), Folic Acid, Biotin, Calcium Pantothenate, Vitamin A, C, D3, E, K2-7, Zinc, Magnesium, Selenium, Copper, Manganese, Chromium, Iodine, Lutein, Lycopene, Grape Seed Extract, Green Tea Extract, Ginkgo Biloba Extract, Coenzyme Q10, Choline Bitartrate',
     indication: 'Boosts energy & immunity, daily nutritional support with antioxidant cellular protection & vital stamina.',
     pack: '30 Softgel Capsules Bottle & Carton Pack',
-    badge: 'Flagship Supplement'
+    badge: 'Flagship Supplement',
+    image: 'assets/images/astravion-health-supplement.png'
   },
   {
     id: 'nut-1',
@@ -142,7 +147,8 @@ const PRODUCTS_DATA = [
     composition: 'L-Arginine 3.0 g + Grape Seed Extract (Vitis vinifera) 75 mg (Sugar Free, Gluten Free, Lemon Orange Flavour)',
     indication: 'Nutraceutical for Women’s Health & Wellness. Supports reproductive health, healthy blood flow, healthy pregnancy, and boosts energy & stamina.',
     pack: '10 x 5 g Sachet Box',
-    badge: 'Women’s Wellness'
+    badge: 'Women’s Wellness',
+    image: 'assets/images/argivex-sachet.png'
   },
   {
     id: 'nut-2',
@@ -356,10 +362,15 @@ function renderCatalog() {
 
   catalogGrid.innerHTML = filtered.map(item => `
     <div class="catalog-item-card">
-      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
         <span class="catalog-item-tag">${item.categoryName}</span>
         <span style="font-size: 0.7rem; font-weight: 700; color: #0284c7; background: #e0f2fe; padding: 2px 6px; border-radius: 4px;">${item.badge}</span>
       </div>
+      ${item.image ? `
+        <div style="width: 100%; height: 120px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid #eef2f6; border-radius: 10px; margin: 8px 0; overflow: hidden; padding: 4px;">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+        </div>
+      ` : ''}
       <h4 class="catalog-item-name">${item.name}</h4>
       <p style="font-size: 0.8125rem; font-weight: 600; color: #0a2540; margin-bottom: 4px;">${item.composition}</p>
       <p class="catalog-item-comp">${item.indication}</p>
